@@ -31,15 +31,21 @@ class RingBuffer:
         return result
 
     def clear(self):
+        self.tail = 0
+        self.head = 0
+        self.length = 0
+
         for i in range(self.size):
             self.buffer[i] = None
-
+            
     def isempty(self):
         if self.length == 0:
             return 1
+
         return 0
 
     def isfull(self):
         if self.length == len(self.buffer):
             return 1
+
         return 0
